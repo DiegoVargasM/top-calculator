@@ -52,14 +52,14 @@ body {
     border-radius: 6px;
 }
 
-.last-op {
+.previous {
     width: 340px;
     height: 60px;
 /*     border: 2px solid black;
     border-radius: 10px; */
 }
 
-.current-op {
+.current {
     width: 340px;
     height: 60px;
 /*     border: 2px solid black;
@@ -74,7 +74,10 @@ body {
 
 }
 
-.btn {
+.btn-number,
+.btn-equal,
+.btn-o,
+.btn-decimal {
     padding: 32px;
     font-size: 26px;
     font-weight: 700;

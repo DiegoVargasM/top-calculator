@@ -1,11 +1,10 @@
-//create array to store values
-const arr = [];
+//store all components on HTML in our JS
+let clear = document.querySelector("#clear-btn");
+let equal = document.querySelector(".btn-equal");
+let decimal = document.querySelector("btn-decimal");
 
-//store the buttons on a variable
-const buttons = document.querySelectorAll(".btn");
+let numbers = document.querySelectorAll(".btn-number");
+let operators = decument.querySelectorAll(".btn-o");
 
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-        alert(button.value);
-    })
-})
+let previousScreen = document.querySelector(".previous");
+let currentScreen = document.querySelector(".current");
