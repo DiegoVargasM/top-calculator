@@ -1,4 +1,11 @@
-//make an empty array to store the numbers to add
-sumItems = [];
-//create a function that introduce values into the previous array
+//create array to store values
+const arr = [];
 
+//store the buttons on a variable
+const buttons = document.querySelectorAll(".btn");
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        alert(button.value);
+    })
+})
