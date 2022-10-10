@@ -27,15 +27,16 @@ function handleNumber(num) {
     if (currentValue.length <= 5) {
         currentValue += num;
     }
-    console.log(currentValue);
 }
 
 //create event listener for operator buttons and change operator value
 operators.forEach((op) => op.addEventListener('click', function (e) {
     handleOperator(e.target.value);
     //after the operator has been chosen, display the prev value and the
-    //operator on the screen
+    //operator on the previous screen
     previousScreen.textContent = previousValue + " " + operator;
+    //reset the current screen display
+    currentScreen.textContent = currentValue;
 }))
 
 //function to add the operator to the operator variable, move 
@@ -44,4 +45,36 @@ function handleOperator(op) {
     operator = op;
     previousValue = currentValue;
     currentValue = '';
+}
+
+//create clear button event listener
+clear.addEventListener('click', function () {
+    previousValue = '';
+    currentValue = '';
+    operator = '';
+    previousScreen.textContent = currentValue;
+    currentScreen.textContent = previousValue;
+})
+
+//listen to equal button to trigger a calculation
+equal.addEventListener('click', function () {
+    calculate();
+})
+
+//calculate function
+function calculate() {
+    //convert input to numbers
+    previousValue = Number(previousValue);
+    currentValue = Number(currentValue);
+    //operations logic
+    if (operator === "+") {
+        previousValue += currentValue;
+    } else if (operator === "-") {
+        previousValue -= currentValue;
+    } else if (operator === "*") {
+        previousValue *= currentValue;
+    } else {
+        previousValue /= currentValue;
+    }
+    console.log(previousValue);
 }
