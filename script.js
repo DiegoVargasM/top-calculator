@@ -56,9 +56,17 @@ clear.addEventListener('click', function () {
     currentScreen.textContent = previousValue;
 })
 
+//create the option to add a decimal
+decimal.addEventListener('click', function () {
+    addDecimal();
+})
+
 //listen to equal button to trigger a calculation
 equal.addEventListener('click', function () {
     calculate();
+    //clear previous screen and print calc value on current
+    previousScreen.textContent = '';
+    currentScreen.textContent = previousValue;
 })
 
 //calculate function
@@ -76,5 +84,18 @@ function calculate() {
     } else {
         previousValue /= currentValue;
     }
-    console.log(previousValue);
+    //round to 3 decimals
+    previousValue = roundNumber(previousValue)
+}
+
+//add decimal function
+function addDecimal() {
+    if (!currentValue.includes(".")) {
+        currentValue += ".";
+    }
+}
+
+//add round function
+function roundNumber(num) {
+    return Math.round(num * 1000) / 1000;
 }
