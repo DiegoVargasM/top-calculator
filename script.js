@@ -47,13 +47,19 @@ function handleOperator(op) {
     currentValue = '';
 }
 
-//create clear button event listener
+//create clear button event listener and function
 clear.addEventListener('click', function () {
     previousValue = '';
     currentValue = '';
     operator = '';
     previousScreen.textContent = currentValue;
     currentScreen.textContent = previousValue;
+})
+
+//create delete button event listener and function
+dlt.addEventListener('click', function () {
+    currentValue = currentValue.slice(0, -1);
+    currentScreen.textContent = currentValue;
 })
 
 //create the option to add a decimal
